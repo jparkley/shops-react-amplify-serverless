@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import { BrowserRouter, Route } from 'react-router-dom'
 import Amplify, { Auth, Hub} from 'aws-amplify'
 import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react'
 /* withAuthenticator: higher level order component */
@@ -8,6 +8,10 @@ import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplif
 import awsConfig from './aws-exports'
 
 import './App.css';
+import Nav from './components/layout/Nav'
+import Home from './pages/Home'
+import Shop from './pages/Shop'
+import Profile from './pages/Profile'
 
 Amplify.configure(awsConfig)
 
@@ -40,13 +44,23 @@ function App() {
   }
 
   return state.user !== null ? (
+    <BrowserRouter>
     <div>
+      <Nav />
       <p>Logged in, Hello, {state.user}!</p>
       <button onClick={handleSignOut}>Sign Out</button>
+      <Route path="/" exact component={Home} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
+
+      
+
       <AmplifyAuthenticator>      
       <AmplifySignOut />
       </AmplifyAuthenticator>
     </div>
+    
+    </BrowserRouter>
   ) : (
     <>
       <div className="">
