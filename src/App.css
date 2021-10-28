@@ -157,10 +157,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  border: none;
-  background-color: cornsilk;
-  /* background: #fef9e7;
-  overflow: auto; */
+  border: none;  
   border-radius: 4px;
   outline: none;
   padding: 20px;
@@ -175,11 +172,22 @@ button {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.modal-content {
-  background-color: cornsilk;
+.modal-content {  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;  
+  padding: 10px;
 }
 
-.ReactModal__overlay {
+/* .ReactModal__overlay {
   opacity: 0;
   transition: opacity 100ms ease-in-out;
 }
@@ -189,4 +197,4 @@ button {
 }
 .ReactModal__overlay--before-close {
   opacity: 0;
-}
+} */
