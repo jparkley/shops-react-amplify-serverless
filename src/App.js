@@ -64,7 +64,7 @@ function App() {
   ) : (
     <>
       <div className="">
-        Shops (market places) budiling 11
+        Shops (market places)
         <AmplifyAuthenticator>      
           <AmplifySignUp headerText="Test Test" slot="sign-up" usernameAlias="email"
             formFields = {[
