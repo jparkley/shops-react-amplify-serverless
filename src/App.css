@@ -79,7 +79,8 @@ amplify-authenticator .section {
   align-items: center;  
 }
 
-.navbar-user > button {  
+/* .navbar-user > button { */
+button {  
   display: inline-block;
   margin-left: 20px;
   padding: 0.375rem 0.75rem;  
@@ -129,6 +130,7 @@ amplify-authenticator .section {
   font-size: 1.8rem;
   font-weight: 500;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .container-top > h2 {
@@ -147,4 +149,44 @@ amplify-authenticator .section {
   transform: skew(-12deg) translateX(-50%);
   background: rgba(238,111,87,0.5);
   z-index: -1;  
+}
+
+.shop-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: none;
+  background-color: cornsilk;
+  /* background: #fef9e7;
+  overflow: auto; */
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+}
+
+.shop-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content {
+  background-color: cornsilk;
+}
+
+.ReactModal__overlay {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.ReactModal__overlay--after-open {
+  opacity: 1;
+}
+.ReactModal__overlay--before-close {
+  opacity: 0;
 }
