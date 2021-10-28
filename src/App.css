@@ -36,10 +36,8 @@ amplify-authenticator .section {
   /* background-color: #fff; */
 }
 
-.navbar-brand span {
+.navbar-brand h2 {
   display: inline;
-  font-size: 1.5rem;
-  font-weight: 500;
   padding-left: 5px;
   padding-top: 10px;
   text-transform: uppercase;
@@ -117,4 +115,36 @@ amplify-authenticator .section {
   height: 100%;
   margin: 30px auto;
   width: 100%;
+}
+
+.container-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-top .icon {
+  color: rgba(238,111,87,0.9);
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.container-top > h2 {
+  padding: 10px 0 8px;
+  font-size: 2rem;
+  position: relative;
+}
+
+.container-top > h2::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  bottom: 9px;
+  width: 50px;
+  height: 8px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(238,111,87,0.5);
+  z-index: -1;  
 }

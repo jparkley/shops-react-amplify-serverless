@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 const Nav = ({user, handleSignOut}) => {
     return (
         <div className="navbar">
-            <Link to="/" className="navbar-brand">
-                <img src="./bag.png" alt="logo" /><span>Shops</span>
-            </Link>
+            <div className="navbar-brand">
+                <img src="./bag.png" alt="logo" />
+                <h2>Shops</h2>
+            </div>            
             <div className="collapse navbar-collapse" id="navbarRes">
                 <ul className="navbar-nav">
                     <li className="nav-item">

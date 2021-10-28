@@ -46,10 +46,12 @@ function App() {
   return state.user !== null ? (
     <BrowserRouter>
       <div>
-        <Nav user={state.user} handleSignOut={handleSignOut} />      
-        <Route path="/" exact component={Home} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
+        <Nav user={state.user} handleSignOut={handleSignOut} />
+        <div className="container">
+          <Route path="/" exact component={Home} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
+        </div>
       </div>    
     </BrowserRouter>
   ) : (
