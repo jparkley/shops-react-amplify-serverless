@@ -45,21 +45,12 @@ function App() {
 
   return state.user !== null ? (
     <BrowserRouter>
-    <div>
-      <Nav />
-      <p>Logged in, Hello, {state.user}!</p>
-      <button onClick={handleSignOut}>Sign Out</button>
-      <Route path="/" exact component={Home} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
-
-      
-
-      <AmplifyAuthenticator>      
-      <AmplifySignOut />
-      </AmplifyAuthenticator>
-    </div>
-    
+      <div>
+        <Nav user={state.user} handleSignOut={handleSignOut} />      
+        <Route path="/" exact component={Home} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
+      </div>    
     </BrowserRouter>
   ) : (
     <>

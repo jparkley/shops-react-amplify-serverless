@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 const Nav = ({user, handleSignOut}) => {
     return (
         <div className="navbar">
-            <div className="navbar-brand">
-                <img src="./bag.png" alt="logo" />
-                <h2>Shops</h2>
-            </div>
+            <Link to="/" className="navbar-brand">
+                <img src="./bag.png" alt="logo" /><span>Shops</span>
+            </Link>
             <div className="collapse navbar-collapse" id="navbarRes">
                 <ul className="navbar-nav">
                     <li className="nav-item">
@@ -14,6 +13,9 @@ const Nav = ({user, handleSignOut}) => {
                     </li>
                     <li className="nav-item">                        
                         <Link to="/profile" className="nav-link">Profile</Link>
+                    </li>
+                    <li className="nav-item">                        
+                        <Link to="/shops/3" className="nav-link">Shop</Link>
                     </li>
                 </ul>
                 <div className="navbar-user">

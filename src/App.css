@@ -31,13 +31,15 @@ amplify-authenticator .section {
 }
 
 .navbar-brand {
-  display: flex;
+  display: flex;  
   align-items: center;
   /* background-color: #fff; */
 }
 
-.navbar-brand h2 {
+.navbar-brand span {
   display: inline;
+  font-size: 1.5rem;
+  font-weight: 500;
   padding-left: 5px;
   padding-top: 10px;
   text-transform: uppercase;
