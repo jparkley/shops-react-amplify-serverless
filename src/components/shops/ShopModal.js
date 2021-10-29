@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import Modal from 'react-modal'
 
+import { API, graphqlOperation } from 'aws-amplify'
+import { createShop } from '../../graphql/mutations'
 
 const ShopModal = ({isOpen, toggleModal}) => {
     
     const [ name, setName ] = useState('')
 
-    const addShop = () => {
-        console.log(name);
+    const addShop = async () => {
+        const res = await API.graphql(graphqlOperation(createShop, { input: {name}}))
+        console.log('created? ', res);       
     }
 
     return (
