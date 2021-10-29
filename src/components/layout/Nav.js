@@ -20,7 +20,7 @@ const Nav = ({user, handleSignOut}) => {
                     </li>
                 </ul>
                 <div className="navbar-user">
-                    Hello, {user}
+                    Hello, {user.attributes.email}
                     <button type="buton" onClick={handleSignOut}>Sign Out</button>                    
                 </div>
             </div>

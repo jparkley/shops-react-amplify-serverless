@@ -24,7 +24,8 @@ function App() {
     let checkUser = async () => {
       try {
         const res = await Auth.currentAuthenticatedUser()      
-        setState({user: res.attributes.email})  
+        // setState({user: res.attributes.email})  
+        setState({user: res})  
       } catch(error) {
         console.log('Error on checking user: ', error);
         setState({user: null})
