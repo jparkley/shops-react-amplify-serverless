@@ -6,14 +6,27 @@ import { createShop } from '../../graphql/mutations'
 
 import { userContext } from '../../App'
 
+// src\components\shops\ShopModal.js
+//   Line 9:15:  React Hook "useContext" cannot be called at the top level. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
 const ShopModal = ({isOpen, toggleModal}) => {
     
     const [ name, setName ] = useState('')
     const user = useContext(userContext)    
 
     const addShop = async () => {
-        const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user}}))
-        console.log('created? ', res);       
+        try {
+            if (name ==='') {
+                console.log('emptu');
+                return
+            }
+            const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user}}))
+            // console.log('created? ', res);
+            setName('')
+            toggleModal()
+        } catch(error) {
+            console.log('Error in creating shop: ', error);
+        }
     }
 
     return (        
@@ -28,7 +41,7 @@ const ShopModal = ({isOpen, toggleModal}) => {
                         <div className="modal-body">                                                
                             <label htmlFor="name">Shop Name: </label>
                             <input type="text" name="name" value={name} placeholder="Enter shop name"
-                                    onChange={(e) => setName(e.target.value)} />
+                                    onChange={(e) => setName(e.target.value)} required />
                         </div>
                         <div className="modal-footer">
                             <button type="button"  onClick={toggleModal}>Cancel</button>
