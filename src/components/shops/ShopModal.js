@@ -17,7 +17,7 @@ const ShopModal = ({isOpen, toggleModal}) => {
 
     const addShop = async () => {
         try {
-            const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user}}))
+            const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user.username}}))
             setName('')
             toggleModal()
             toast.success(`Successfully Created Shop: ${name}`)
