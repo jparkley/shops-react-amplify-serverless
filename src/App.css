@@ -225,6 +225,15 @@ input {
   text-align: right;
 }
 
+.modal-footer button:disabled {
+  background-color: gray;
+  cursor: grab;
+}
+
+.toast {
+  color: #000;
+  min-width: 500px;
+}
 /* .ReactModal__overlay {
   opacity: 0;
   transition: opacity 100ms ease-in-out;

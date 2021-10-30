@@ -8,6 +8,8 @@ const AddShop = () => {
     const [isOpen, setIsOpen] = useState(false)
     const toggleModal = () => setIsOpen(!isOpen)
 
+    
+
     return (
         <>
         <div className="container-top" onClick={toggleModal}>

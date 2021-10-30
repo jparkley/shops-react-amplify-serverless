@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import Modal from 'react-modal'
+import toast from 'react-hot-toast'
 
 import { API, graphqlOperation } from 'aws-amplify'
 import { createShop } from '../../graphql/mutations'
@@ -16,16 +17,13 @@ const ShopModal = ({isOpen, toggleModal}) => {
 
     const addShop = async () => {
         try {
-            if (name ==='') {
-                console.log('emptu');
-                return
-            }
             const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user}}))
-            // console.log('created? ', res);
             setName('')
             toggleModal()
+            toast.success(`Successfully Created Shop: ${name}`)
         } catch(error) {
-            console.log('Error in creating shop: ', error);
+            toast.error(`Error in creating shop`)
+            console.log(`Error in creating shop`, error);
         }
     }
 
@@ -41,7 +39,7 @@ const ShopModal = ({isOpen, toggleModal}) => {
                         <div className="modal-body">                                                
                             <label htmlFor="name">Shop Name: </label>
                             <input type="text" name="name" value={name} placeholder="Enter shop name"
-                                    onChange={(e) => setName(e.target.value)} required />
+                                    onChange={(e) => setName(e.target.value)}  />
                         </div>
                         <div className="modal-footer">
                             <button type="button"  onClick={toggleModal}>Cancel</button>

@@ -7,6 +7,8 @@ import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplif
       won't automatically detect Auth state of the user, but enables us to customize nav */
 import awsConfig from './aws-exports'
 
+import toast, { Toaster } from 'react-hot-toast'
+
 import './App.css';
 import Nav from './components/layout/Nav'
 import Home from './pages/Home'
@@ -16,6 +18,8 @@ import Profile from './pages/Profile'
 export const userContext = createContext()
 
 Amplify.configure(awsConfig)
+
+//const notifiy = () => toast('Here is your toast')
 
 function App() {
   const [state, setState] = useState({
@@ -48,16 +52,22 @@ function App() {
 
   return state.user !== null ? (
     <userContext.Provider value={state.user}>
-    <BrowserRouter>
-      <div>
-        <Nav user={state.user} handleSignOut={handleSignOut} />
-        <div className="container">
-          <Route path="/" exact component={Home} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
-        </div>
-      </div>    
-    </BrowserRouter>
+      <BrowserRouter>
+        <div>
+          <Nav user={state.user} handleSignOut={handleSignOut} />
+          <div className="container">
+            <Route path="/" exact component={Home} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/shops/:shopId" component={({match}) => <Shop shopId={match.params.shopId} />} />
+          </div>
+        </div>    
+      </BrowserRouter>
+      <Toaster position="bottom-center" 
+      toastOptions={{
+        className: 'toast',  
+        success: { style: {backgroundColor: '#EEEEEE'}},
+        error:  { style: {backgroundColor: '#ECAC5D'}},
+      }} />
     </userContext.Provider>
   ) : (
     <>
