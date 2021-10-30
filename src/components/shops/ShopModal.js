@@ -1,19 +1,22 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Modal from 'react-modal'
 
 import { API, graphqlOperation } from 'aws-amplify'
 import { createShop } from '../../graphql/mutations'
 
+import { userContext } from '../../App'
+
 const ShopModal = ({isOpen, toggleModal}) => {
     
     const [ name, setName ] = useState('')
+    const user = useContext(userContext)    
 
     const addShop = async () => {
-        const res = await API.graphql(graphqlOperation(createShop, { input: {name}}))
+        const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user}}))
         console.log('created? ', res);       
     }
 
-    return (
+    return (        
         <div>            
             <Modal isOpen={isOpen} onRequestClose={toggleModal} ariaHideApp={false}
                 contentLabel="Create Your Shop" className="shop-modal" overlayClassName="shop-overlay">
@@ -36,7 +39,7 @@ const ShopModal = ({isOpen, toggleModal}) => {
                     </form>
                 </div>               
             </Modal>
-        </div>
+        </div>        
     )
 }
 
