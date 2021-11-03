@@ -20,15 +20,30 @@ const options = categories.map(category => {
 
 const ShopModal = ({isOpen, toggleModal}) => {
     
-    const [ name, setName ] = useState('')
+    const [ state, setState ] = useState({
+        shopName: '',
+        selected: null
+    })
     const user = useContext(userContext)    
 
+    const handleSelectChange = (e) => {
+        console.log('select', e);
+        setState(prev => ({
+            ...prev,
+            selected: e
+        }))
+    }
     const addShop = async () => {
+        const tags = state.selected.map(tag => tag['value'])
         try {
-            const res = await API.graphql(graphqlOperation(createShop, { input: {name: name, owner: user.username}}))
-            setName('')
+            const res = await API.graphql(graphqlOperation(createShop, { input: {
+                name: state.shopName, 
+                owner: user.username,
+                tags: tags
+            }}))
+            setState({shopName:'', selected: []})
             toggleModal()
-            toast.success(`Successfully Created Shop: ${name}`)
+            toast.success(`Successfully Created Shop: ${state.shopName}`)
         } catch(error) {
             toast.error(`Error in creating shop`)
             console.log(`Error in creating shop`, error);
@@ -46,16 +61,17 @@ const ShopModal = ({isOpen, toggleModal}) => {
                     <form action="">
                         <div className="modal-body">                                                
                             <div className="form-element">
-                                <label htmlFor="name">Shop Name: </label>
-                                <input type="text" name="name" value={name} placeholder="Enter shop name"
-                                        onChange={(e) => setName(e.target.value)}  />
+                                <label htmlFor="shopName">Shop Name: </label>
+                                <input type="text" name="shopName" value={state.shopName} placeholder="Enter shop name"
+                                        onChange={(e) => setState({...state, shopName: e.target.value})}  />
                             </div>
                             <div className="form-element">
-                                <label htmlFor="name">Categories: </label>
+                                <label htmlFor="categories">Categories: </label>
                                 <Select options={options}
                                         isMulti
                                         name="categories" 
                                         className="select"
+                                        onChange={handleSelectChange}
                                         />
                             </div> 
                         </div>
@@ -63,7 +79,7 @@ const ShopModal = ({isOpen, toggleModal}) => {
                             <button type="button"  onClick={toggleModal}>Cancel</button>
                             <button type="button" 
                                 onClick={addShop}
-                                disabled={!name} >Add</button>
+                                disabled={!state.shopName} >Add</button>
                         </div>
                     </form>
                 </div>               
