@@ -257,6 +257,25 @@ input {
   color: #000;
   min-width: 500px;
 }
+
+.shop-list {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  max-width: 800px;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-bottom: 1px solid gold;
+}
+
+.shop-list span {
+  margin-left: 20px;
+}
+
+
 /* .ReactModal__overlay {
   opacity: 0;
   transition: opacity 100ms ease-in-out;

@@ -27,7 +27,6 @@ const ShopModal = ({isOpen, toggleModal}) => {
     const user = useContext(userContext)    
 
     const handleSelectChange = (e) => {
-        console.log('select', e);
         setState(prev => ({
             ...prev,
             selected: e
