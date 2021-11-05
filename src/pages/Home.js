@@ -3,11 +3,10 @@ import AddShop from '../components/shops/AddShop'
 
 const Home = () => {
     return (
-        <div>
+        <>
             <AddShop />
             <ShopList />
-
-        </div>
+        </>
     )
 }
 

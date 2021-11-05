@@ -111,7 +111,7 @@ button {
 
 .container {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   height: 100%;
   margin: 30px auto;
@@ -121,7 +121,7 @@ button {
 .container-top {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -258,13 +258,37 @@ input {
   min-width: 500px;
 }
 
-.shop-list {
-  font-size: 1.2rem;
+.container-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.shops-header {
+  color: #0E6251;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-width: 0;
-  max-width: 800px;
+}
+
+.shops-header span {
+  font-size: 1.8rem;
+  margin-left: 10px;
+  padding-top: 2px;
+}
+
+.shops-list {
+  font-size: 1.2rem;
+  /* display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center; */
+  min-width: 580px;
+  width: 100%;
+  margin: 2px auto;
+  /* max-width: 800px; */
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -275,7 +299,36 @@ input {
   margin-left: 20px;
 }
 
+.shop-card {
+  display: flex;
+  justify-content: space-between;
+}
 
+.shop-card .badge {
+    display: inline-block;
+    padding: 0.6em 0.8em;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 0.95rem;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    background-color: #17a2b8;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.shop-card .badge::first-letter {
+  text-transform: capitalize;
+}
+
+.shop-categories {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
 /* .ReactModal__overlay {
   opacity: 0;
   transition: opacity 100ms ease-in-out;

@@ -8,15 +8,13 @@ const AddShop = () => {
     const [isOpen, setIsOpen] = useState(false)
     const toggleModal = () => setIsOpen(!isOpen)
 
-    
-
     return (
         <>
-        <div className="container-top" onClick={toggleModal}>
-            <h2>Create Your Shop </h2>
-            <div className="icon"><FaPencilAlt /></div>
-        </div>
-        <ShopModal isOpen={isOpen} toggleModal={toggleModal} />
+            <div className="container-top">
+                <h2>Create Your Shop </h2>
+                <div className="icon" onClick={toggleModal}><FaPencilAlt /></div>
+            </div>
+            <ShopModal isOpen={isOpen} toggleModal={toggleModal} />
         </>
         )
 }
