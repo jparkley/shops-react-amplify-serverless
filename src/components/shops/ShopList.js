@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { listShops } from '../../graphql/queries'
+import { onCreateShop } from '../../graphql/subscriptions'
 import { FaCartArrowDown }  from 'react-icons/fa'
 
 const ShopList = () => {
@@ -11,7 +12,19 @@ const ShopList = () => {
             const res = await API.graphql(graphqlOperation(listShops))
             setShops(res.data.listShops.items)
         }
+        const subscribeShops = async () => {
+            await API.graphql(graphqlOperation(onCreateShop)).subscribe({
+                next: ({ provider, value }) => {
+                    setShops(prev => [...prev,value.data.onCreateShop])
+                },
+                error: error => {
+                    console.log('err in sub', error);
+                }
+            })
+        }
         getShops()
+        subscribeShops()
+        // need to add cleanup
     }, [])
 
     return (
