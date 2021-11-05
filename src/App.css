@@ -281,27 +281,30 @@ input {
 
 .shops-list {
   font-size: 1.2rem;
-  /* display: flex;
-  flex: 0 0 auto;
-  flex-direction: row;
-  align-items: center; */
   min-width: 580px;
   width: 100%;
-  margin: 2px auto;
-  /* max-width: 800px; */
+  margin: 2px auto;  
   word-wrap: break-word;
   background-color: #fff;
-  background-clip: border-box;
-  border-bottom: 1px solid gold;
+  background-clip: border-box;  
 }
 
-.shop-list span {
+.shops-list span {
   margin-left: 20px;
 }
 
+.shops-list > div:first-of-type {
+  margin-top: 20px;
+}
+
 .shop-card {
+  background-color: #f0f0f0;
+  border-color: #d8d8d8;  
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .shop-card .badge {
@@ -324,6 +327,10 @@ input {
   text-transform: capitalize;
 }
 
+.shop-name h3 {
+  margin: 10px 0;
+}
+
 .shop-categories {
   display: flex;
   justify-content: space-between; 
@@ -341,14 +348,25 @@ input {
   opacity: 0;
 } */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 660px) {
   .modal-content {
     min-width: 460px
   }
   .modal-body {
     padding: 0 8px;
   }
-  
+  .container-content {
+    width: 100%;
+    max-width: 640px;
+  }
+  .shop-list {
+    max-width: 460px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .shop-card {
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 992px) {

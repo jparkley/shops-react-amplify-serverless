@@ -21,10 +21,9 @@ const ShopList = () => {
             <div className="shops-list">
                 {shops.map(shop => (
                     <div key={shop.id} className="shop-card">
-                        <div>
-
-                        <h3>{shop.name}</h3>
-                        <span>{shop.owner}</span>
+                        <div className="shop-name">
+                            <h3>{shop.name}</h3>
+                            <span>{shop.owner}</span>
                         </div>
                         <div className="shop-categories">
                             {shop.tags && shop.tags.map((category, index) => (
