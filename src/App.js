@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Amplify, { Auth, Hub} from 'aws-amplify'
-import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react'
+import { AmplifyAuthenticator, AmplifySignUp } from '@aws-amplify/ui-react'
 /* withAuthenticator: higher level order component */
 /* AmplifyAuthenticator: React component, 
       won't automatically detect Auth state of the user, but enables us to customize nav */

@@ -35,7 +35,7 @@ const ShopModal = ({isOpen, toggleModal}) => {
     const addShop = async () => {
         const tags = state.selected.map(tag => tag['value'])
         try {
-            const res = await API.graphql(graphqlOperation(createShop, { input: {
+            await API.graphql(graphqlOperation(createShop, { input: {
                 name: state.shopName, 
                 owner: user.attributes.email,
                 tags: tags

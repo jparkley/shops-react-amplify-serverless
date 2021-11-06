@@ -10,13 +10,21 @@ const Shop = ({shopId}) => {
     const [state, setState] = useState({
         shop: null,
         isLoading: true,
-        isOwner: true /* to check the current user is the owner of the shop */
+        isOwner: false /* To check the current user is the owner of the shop */
     })
 
     const user = useContext(userContext)
 
     useEffect(() => {
         if(!shopId) return
+
+        const checkOwner = (owner) => {
+            // console.log('owner: ',owner );
+            // console.log('user from context', user.attributes.email);    
+            if (user) {
+                setState(prev => ({...prev, isOwner: (owner === user.attributes.email)}))
+            }
+        }
 
         const query = { id: shopId}
         const getShopInfo = async () => {
@@ -28,9 +36,8 @@ const Shop = ({shopId}) => {
         getShopInfo()
     }, [])
 
-    const checkOwner = (owner) => {
-        if (owner !== user.attributes.email) { setState(prev => ({...prev, isOwner: false})) }
-    }
+    // console.log('state: ', state);
+    //console.log(state.shop.products.items.length);
 
     return state.isLoading ? (
         <div>isLoading</div>
@@ -42,14 +49,30 @@ const Shop = ({shopId}) => {
             <div className="shop-body">
                 <Tabs>
                     <TabList>
-                        <Tab>Products</Tab>
+                    {state.isOwner &&  (
                         <Tab>Add Product</Tab>
+                    )}  
+                        <Tab>Products({state.shop.products.items.length})</Tab>
+                        <Tab>FAQ</Tab>
                     </TabList>
+
+                    {state.isOwner && (
                     <TabPanel>
-                        this is for Products
+                        this is for add product
+                    </TabPanel>
+                    )}
+                    <TabPanel>Products
+                        {/* {state.shop.products && (
+                            state.shop.products.map(product => {
+                                return (
+                                    <div className="product-header">name here</div>
+                                )
+                            })
+                        )} */}
+
                     </TabPanel>
                     <TabPanel>
-                        this is for Add Product
+                        FAQ section
                     </TabPanel>
                 </Tabs>                
             </div>
