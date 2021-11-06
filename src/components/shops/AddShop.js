@@ -10,7 +10,7 @@ const AddShop = () => {
 
     return (
         <>
-            <div className="container-top">
+            <div className="container-header">
                 <h2>Create Your Shop </h2>
                 <div className="icon" onClick={toggleModal}><FaPencilAlt /></div>
             </div>

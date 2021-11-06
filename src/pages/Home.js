@@ -5,7 +5,9 @@ const Home = () => {
     return (
         <>
             <AddShop />
-            <ShopList />
+            <div className="container-content">
+                <ShopList />
+            </div>  
         </>
     )
 }

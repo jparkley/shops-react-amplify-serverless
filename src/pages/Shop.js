@@ -25,10 +25,9 @@ const Shop = ({shopId}) => {
     return state.isLoading ? (
         <div>isLoading</div>
     ) : (
-        <div className="shop-info">
+        <div className="container-content">
             <div className="shop-header">
-                <h3>{state.shop.name}</h3>
-                <span>{state.shop.owner}</span>
+                <h2>{state.shop.name}</h2><span>{state.shop.owner}</span>
             </div>
             <div className="shop-body">
                 shop body here

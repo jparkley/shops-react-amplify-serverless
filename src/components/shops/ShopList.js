@@ -31,7 +31,6 @@ const ShopList = () => {
 
     return (
         <>
-        <div className="container-content">
             <div className="shops-header"><FaCartArrowDown /><span>Shops</span></div>
             <div className="shops-list">
                 {shops.map(shop => (
@@ -47,8 +46,7 @@ const ShopList = () => {
                         </div>
                     </div>
                 ))}
-            </div>
-        </div>
+            </div>        
         </>
     )
 }
