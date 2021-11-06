@@ -355,6 +355,9 @@ input {
   font-weight: bold;
 }
 
+.shop-body {
+  margin-top: 20px;
+}
 
 @media screen and (max-width: 660px) {
   .modal-content {

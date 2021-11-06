@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { API, graphqlOperation } from 'aws-amplify'
 import { getShop } from '../graphql/queries'
+
+import '../styles/react-tabs.css'
 
 const Shop = ({shopId}) => {
     const [state, setState] = useState({
@@ -30,7 +32,18 @@ const Shop = ({shopId}) => {
                 <h2>{state.shop.name}</h2><span>{state.shop.owner}</span>
             </div>
             <div className="shop-body">
-                shop body here
+                <Tabs>
+                    <TabList>
+                        <Tab>Products</Tab>
+                        <Tab>Add Product</Tab>
+                    </TabList>
+                    <TabPanel>
+                        this is for Products
+                    </TabPanel>
+                    <TabPanel>
+                        this is for Add Product
+                    </TabPanel>
+                </Tabs>                
             </div>
         </div>
     )
