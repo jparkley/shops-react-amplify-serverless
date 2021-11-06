@@ -336,17 +336,10 @@ input {
   justify-content: space-between; 
   align-items: center;
 }
-/* .ReactModal__overlay {
-  opacity: 0;
-  transition: opacity 100ms ease-in-out;
-}
 
-.ReactModal__overlay--after-open {
-  opacity: 1;
+.link {
+  color:darkcyan;
 }
-.ReactModal__overlay--before-close {
-  opacity: 0;
-} */
 
 @media screen and (max-width: 660px) {
   .modal-content {
@@ -376,3 +369,15 @@ input {
   
 }
 
+
+/* .ReactModal__overlay {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.ReactModal__overlay--after-open {
+  opacity: 1;
+}
+.ReactModal__overlay--before-close {
+  opacity: 0;
+} */

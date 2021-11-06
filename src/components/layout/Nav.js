@@ -4,7 +4,7 @@ const Nav = ({user, handleSignOut}) => {
     return (
         <div className="navbar">
             <div className="navbar-brand">
-                <img src="./bag.png" alt="logo" />
+                <img src="/bag.png" alt="logo" />
                 <h2>Shops</h2>
             </div>            
             <div className="collapse navbar-collapse" id="navbarRes">

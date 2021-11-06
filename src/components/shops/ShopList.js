@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+
 import { API, graphqlOperation } from 'aws-amplify'
 import { listShops } from '../../graphql/queries'
 import { onCreateShop } from '../../graphql/subscriptions'
@@ -35,7 +37,7 @@ const ShopList = () => {
                 {shops.map(shop => (
                     <div key={shop.id} className="shop-card">
                         <div className="shop-name">
-                            <h3>{shop.name}</h3>
+                            <Link to={`/shops/${shop.id}`} className="link"><h3>{shop.name}</h3></Link>
                             <span>{shop.owner}</span>
                         </div>
                         <div className="shop-categories">
