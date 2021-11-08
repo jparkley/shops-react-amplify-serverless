@@ -2,7 +2,8 @@
   --amplify-primary-color: #2196f3;
   --amplify-primary-tint: #3f6060;
   --amplify-primary-shade: #2dba89;
-  --amplify-background-color: #d8ecfc;
+  /* --amplify-background-color: #d8ecfc; */
+  --amplify-background-color:  #fff;
 }
 
 amplify-authenticator {
@@ -389,6 +390,12 @@ input[type=radio] {
   display: flex;
   align-items: center;
 }
+
+.block-top-margin {
+  margin-top: 20px;
+}
+
+
 
 @media screen and (max-width: 660px) {
   .modal-content {

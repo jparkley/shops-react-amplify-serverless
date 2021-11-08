@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
+import { AmplifyS3ImagePicker } from '@aws-amplify/ui-react'
 import { createProduct } from '../../graphql/mutations'
 
 const AddProduct = ({owner}) => {
@@ -42,6 +43,9 @@ const AddProduct = ({owner}) => {
                         <input type="radio" checked={shipped === true} onChange={() => setShipped(true)} />Yes
                         <input type="radio" checked={shipped === false} onChange={() => setShipped(false)} />No (Downloadable Products)
                     </div>
+                </div>
+                <div className="block block-top-margin">
+                    <AmplifyS3ImagePicker headerTitle="Please select product image" headerHint="JPG, GIF, PNG"/>
                 </div>
 
                 <div className="form-element-grid">
