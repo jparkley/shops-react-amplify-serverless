@@ -15,6 +15,7 @@ const Shop = ({shopId}) => {
     })
 
     const user = useContext(userContext)
+    const userEmail = user.attributes.email
 
     useEffect(() => {
         if(!shopId) return
@@ -23,7 +24,7 @@ const Shop = ({shopId}) => {
             // console.log('owner: ',owner );
             // console.log('user from context', user.attributes.email);    
             if (user) {
-                setState(prev => ({...prev, isOwner: (owner === user.attributes.email)}))
+                setState(prev => ({...prev, isOwner: (owner === userEmail)}))
             }
         }
 
@@ -59,7 +60,7 @@ const Shop = ({shopId}) => {
 
                     {state.isOwner && (
                     <TabPanel>
-                        <AddProduct />
+                        <AddProduct owner={userEmail} />
                     </TabPanel>
                     )}
                     <TabPanel>Products

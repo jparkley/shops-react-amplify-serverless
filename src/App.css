@@ -377,10 +377,18 @@ label, input {
   line-height: 42px;
 }
 
+input[type=radio] {
+  margin-left: 10px;
+}
+
 .block {
   padding: 10px;
 }
 
+.block-flex {
+  display: flex;
+  align-items: center;
+}
 
 @media screen and (max-width: 660px) {
   .modal-content {
