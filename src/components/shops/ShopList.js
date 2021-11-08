@@ -9,6 +9,7 @@ import { FaCartArrowDown }  from 'react-icons/fa'
 const ShopList = () => {
 
     const [shops, setShops] = useState([])
+    
     useEffect(() => {
         const getShops = async () => {
             const res = await API.graphql(graphqlOperation(listShops))

@@ -5,6 +5,7 @@ import { getShop } from '../graphql/queries'
 
 import { userContext } from '../App'
 import '../styles/react-tabs.css'
+import  AddProduct from '../components/shops/AddProduct'
 
 const Shop = ({shopId}) => {
     const [state, setState] = useState({
@@ -58,7 +59,7 @@ const Shop = ({shopId}) => {
 
                     {state.isOwner && (
                     <TabPanel>
-                        this is for add product
+                        <AddProduct />
                     </TabPanel>
                     )}
                     <TabPanel>Products

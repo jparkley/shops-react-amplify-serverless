@@ -359,6 +359,29 @@ input {
   margin-top: 20px;
 }
 
+.product-form {
+  display: grid;
+  grid-template-columns: 180px 400px;
+  grid-gap: 10px;
+}
+
+.form-element-grid {
+  display: grid;
+  grid-template-columns: 140px 400px;
+  grid-gap: 10px;
+}
+
+label, input {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 42px;
+}
+
+.block {
+  padding: 10px;
+}
+
+
 @media screen and (max-width: 660px) {
   .modal-content {
     min-width: 460px
