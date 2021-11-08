@@ -27,15 +27,15 @@ const AddProduct = ({owner}) => {
             <form>
                 <div className="form-element-grid">
                     <label htmlFor="product">Product Name: </label>
-                    <input type="text" name="product" onChange={e => setProduct(e.target.value)} required />
+                    <input type="text" name="product" value={product} onChange={e => setProduct(e.target.value)} required />
                 </div>
                 <div className="form-element-grid">
                     <label htmlFor="price">Price: </label>
-                    <input type="number" name="price" onChange={e => setPrice(e.target.value)} required />
+                    <input type="number" name="price" value={price} onChange={e => setPrice(e.target.value)} required />
                 </div>
                 <div className="form-element-grid">
                     <label htmlFor="price">Description: </label>
-                    <input type="text" name="description" onChange={e => setDescription(e.target.value)} required />
+                    <input type="text" name="description" value={description} onChange={e => setDescription(e.target.value)} required />
                 </div>
                 <div className="form-element-grid">
                     <label htmlFor="price">Will Ship: </label>
@@ -45,11 +45,16 @@ const AddProduct = ({owner}) => {
                     </div>
                 </div>
                 <div className="block block-top-margin">
-                    <AmplifyS3ImagePicker headerTitle="Please select product image" headerHint="JPG, GIF, PNG"/>
+                    <AmplifyS3ImagePicker headerTitle="Please select product image" headerHint="JPG, GIF, PNG" 
+                    theme={{
+                        photoPickerButton: {
+                            display: "none"
+                        }
+                    }} />
                 </div>
 
                 <div className="form-element-grid">
-                    <button type="submit" onClick={handleSubmit}>Add Product</button>
+                    <button type="button" disabled={!product || !price || !description} onClick={handleSubmit}>Add Product</button>
                 </div>
             </form>
         </div>

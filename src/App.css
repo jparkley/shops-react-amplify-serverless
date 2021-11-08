@@ -395,7 +395,10 @@ input[type=radio] {
   margin-top: 20px;
 }
 
-
+button:disabled {
+  cursor: grab;
+  opacity: 0.8;
+}
 
 @media screen and (max-width: 660px) {
   .modal-content {
