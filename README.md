@@ -22,6 +22,6 @@
 
 
 ## TODO
-
+- use SCSS to make more systematic
 
 :musical_note:

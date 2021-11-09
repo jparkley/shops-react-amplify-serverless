@@ -378,7 +378,7 @@ label, input {
   line-height: 42px;
 }
 
-input[type=radio] {
+input[type="radio"] {
   margin-left: 10px;
 }
 

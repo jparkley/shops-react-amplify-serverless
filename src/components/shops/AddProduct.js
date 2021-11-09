@@ -20,6 +20,9 @@ const AddProduct = ({owner}) => {
         }
         // const res = await API.graphql(graphqlOperation(createProduct, { input: data}))
         console.log('e in submit', data);
+        setPrice(0)
+        setProduct('')
+        setDescription('')
     }
 
     return (
