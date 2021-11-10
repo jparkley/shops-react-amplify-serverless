@@ -20,8 +20,10 @@
 - @aws-amplify/ui-react 1.2.20
 - aws-amplify 4.3.2
 
+## Blockers
+- Amplify Photopicker: how to customize CSS and some functions
 
 ## TODO
-- use SCSS to make more systematic
+- use SCSS (CSS refactoring needed)
 
 :musical_note:
