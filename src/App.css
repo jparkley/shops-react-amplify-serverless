@@ -436,8 +436,8 @@ input[type="radio"] {
 
 button:disabled {
   cursor: grab;
-  opacity: 0.8;
-}
+  background-color: rgb(192, 192, 192);
+}rgb(192, 192, 192)
 
 .preview {
   display: block;
