@@ -28,16 +28,22 @@ const AddProduct = ({owner}) => {
         })        
         //console.log('resFile', resFile);
 
-        const data = {
+        const file = {
+            key: resFile.key,
+            bucket: aws_exports.aws_user_files_s3_bucket,
+            region: aws_exports.aws_project_region
+        }
+
+        const input = {
             name: product,
             owner: owner,
             description: description,
-            image: imageFile,
+            image: file,
             price: price,
             shipped: shipped
         }
-        // const res = await API.graphql(graphqlOperation(createProduct, { input: data}))
-        console.log('e in submit', data);
+        const res = await API.graphql(graphqlOperation(createProduct, { input }))
+        console.log('e in submit', input);
         setPrice(0)
         setProduct('')
         setDescription('')
