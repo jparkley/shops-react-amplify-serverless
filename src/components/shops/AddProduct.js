@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import { API, graphqlOperation, Storage } from 'aws-amplify'
+import { API, graphqlOperation, Storage, Auth } from 'aws-amplify'
 // import { AmplifyS3ImagePicker, AmplifyS3Image } from '@aws-amplify/ui-react'
 import aws_exports from '../../aws-exports'
 import { createProduct } from '../../graphql/mutations'
@@ -12,16 +12,21 @@ const AddProduct = ({owner}) => {
     const [shipped, setShipped] = useState(true)
     const [imageFile, setImageFile] = useState('')
 
-    const user = useContext(userContext)
+    /*  user from userContext: currentAuthenticatedUser
+        id from currentCredentials */
+    // const user = useContext(userContext)
 
     const handleSubmit = async (e) => {
 
         e.preventDefault()
+        const { identityId } = await Auth.currentCredentials()
+
         const path = "public"
-        const filename = `/${path}/${user.username}/${Date.now()}-${imageFile.name}`
+        const filename = `/${path}/${identityId}/${Date.now()}-${imageFile.name}`
         const resFile = await Storage.put(filename, imageFile, {
             contentType: imageFile.type
         })        
+        //console.log('resFile', resFile);
 
         const data = {
             name: product,
