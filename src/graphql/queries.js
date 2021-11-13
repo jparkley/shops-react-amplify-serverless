@@ -10,8 +10,21 @@ export const getShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -37,6 +50,16 @@ export const listShops = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -57,6 +80,16 @@ export const getProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -91,6 +124,9 @@ export const listProducts = /* GraphQL */ `
         shop {
           id
           name
+          products {
+            nextToken
+          }
           owner
           tags
           createdAt
@@ -121,6 +157,26 @@ export const getUser = /* GraphQL */ `
       orders {
         items {
           id
+          user {
+            id
+            username
+            email
+            registered
+            createdAt
+            updatedAt
+          }
+          products {
+            nextToken
+          }
+          address {
+            id
+            street1
+            street2
+            city
+            state
+            zipCode
+            country
+          }
           createdAt
           updatedAt
         }
@@ -151,6 +207,16 @@ export const searchShops = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner

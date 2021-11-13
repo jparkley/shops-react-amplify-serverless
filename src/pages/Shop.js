@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { API, graphqlOperation } from 'aws-amplify'
-import { getShop } from '../graphql/queries'
+import { getShop, listProducts } from '../graphql/queries'
 
 import { userContext } from '../App'
 import '../styles/react-tabs.css'
 import  AddProduct from '../components/shops/AddProduct'
+import Product from '../components/shops/Product'
 
 const Shop = ({shopId}) => {
     const [state, setState] = useState({
@@ -14,21 +15,20 @@ const Shop = ({shopId}) => {
         isOwner: false /* To check the current user is the owner of the shop */
     })
 
-    const user = useContext(userContext)
+    const user = useContext(userContext) /* currentAuthenticatedUser */
     const userEmail = user.attributes.email
 
     useEffect(() => {
         if(!shopId) return
 
         const checkOwner = (owner) => {
-            // console.log('owner: ',owner );
             // console.log('user from context', user.attributes.email);    
             if (user) {
                 setState(prev => ({...prev, isOwner: (owner === userEmail)}))
             }
         }
 
-        const query = { id: shopId}
+        const query = { id: shopId }
         const getShopInfo = async () => {
             const res = await API.graphql(graphqlOperation(getShop, query))
             setState({...state, shop: res.data.getShop, isLoading: false})
@@ -36,10 +36,9 @@ const Shop = ({shopId}) => {
         }
 
         getShopInfo()
-    }, [])
 
-    // console.log('state: ', state);
-    //console.log(state.shop.products.items.length);
+
+    }, [])
 
     return state.isLoading ? (
         <div>isLoading</div>
@@ -63,15 +62,14 @@ const Shop = ({shopId}) => {
                         <AddProduct owner={user} shopId={shopId} />
                     </TabPanel>
                     )}
-                    <TabPanel>Products
-                        {/* {state.shop.products && (
-                            state.shop.products.map(product => {
+                    <TabPanel>
+                        {state.shop.products.items && (
+                            state.shop.products.items.map(product => {
                                 return (
-                                    <div className="product-header">name here</div>
+                                    <Product key={product.id} product={product} />
                                 )
                             })
-                        )} */}
-
+                        )}
                     </TabPanel>
                     <TabPanel>
                         FAQ section

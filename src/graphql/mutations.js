@@ -13,8 +13,21 @@ export const createShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -41,8 +54,21 @@ export const updateShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -69,8 +95,21 @@ export const deleteShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -97,6 +136,16 @@ export const createProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -130,6 +179,16 @@ export const updateProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -163,6 +222,16 @@ export const deleteProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -196,6 +265,26 @@ export const registerUser = /* GraphQL */ `
       orders {
         items {
           id
+          user {
+            id
+            username
+            email
+            registered
+            createdAt
+            updatedAt
+          }
+          products {
+            nextToken
+          }
+          address {
+            id
+            street1
+            street2
+            city
+            state
+            zipCode
+            country
+          }
           createdAt
           updatedAt
         }
@@ -219,6 +308,26 @@ export const updateUser = /* GraphQL */ `
       orders {
         items {
           id
+          user {
+            id
+            username
+            email
+            registered
+            createdAt
+            updatedAt
+          }
+          products {
+            nextToken
+          }
+          address {
+            id
+            street1
+            street2
+            city
+            state
+            zipCode
+            country
+          }
           createdAt
           updatedAt
         }
@@ -242,6 +351,11 @@ export const createOrder = /* GraphQL */ `
         username
         email
         orders {
+          items {
+            id
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         registered
@@ -252,8 +366,21 @@ export const createOrder = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt

@@ -10,8 +10,21 @@ export const onCreateShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -35,8 +48,21 @@ export const onUpdateShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -60,8 +86,21 @@ export const onDeleteShop = /* GraphQL */ `
         items {
           id
           name
+          shop {
+            id
+            name
+            owner
+            tags
+            createdAt
+            updatedAt
+          }
           owner
           description
+          image {
+            bucket
+            region
+            key
+          }
           price
           shipped
           createdAt
@@ -85,6 +124,16 @@ export const onCreateProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -115,6 +164,16 @@ export const onUpdateProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
@@ -145,6 +204,16 @@ export const onDeleteProduct = /* GraphQL */ `
         id
         name
         products {
+          items {
+            id
+            name
+            owner
+            description
+            price
+            shipped
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         owner
