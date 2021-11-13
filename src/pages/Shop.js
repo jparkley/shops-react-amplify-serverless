@@ -60,7 +60,7 @@ const Shop = ({shopId}) => {
 
                     {state.isOwner && (
                     <TabPanel>
-                        <AddProduct owner={userEmail} />
+                        <AddProduct owner={user} shopId={shopId} />
                     </TabPanel>
                     )}
                     <TabPanel>Products

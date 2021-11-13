@@ -3,9 +3,9 @@ import { API, graphqlOperation, Storage, Auth } from 'aws-amplify'
 // import { AmplifyS3ImagePicker, AmplifyS3Image } from '@aws-amplify/ui-react'
 import aws_exports from '../../aws-exports'
 import { createProduct } from '../../graphql/mutations'
-import { userContext } from '../../App'
+// import { userContext } from '../../App'
 
-const AddProduct = ({owner}) => {
+const AddProduct = ({owner, shopId}) => {
     const [product, setProduct] = useState('')
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
@@ -21,6 +21,7 @@ const AddProduct = ({owner}) => {
         e.preventDefault()
         const { identityId } = await Auth.currentCredentials()
 
+        /* Save image file first */
         const path = "public"
         const filename = `/${path}/${identityId}/${Date.now()}-${imageFile.name}`
         const resFile = await Storage.put(filename, imageFile, {
@@ -34,20 +35,29 @@ const AddProduct = ({owner}) => {
             region: aws_exports.aws_project_region
         }
 
+        const { username } = await Auth.currentAuthenticatedUser(); 
+
         const input = {
             name: product,
-            owner: owner,
+            productShopId: shopId,
+            owner: username,
             description: description,
             image: file,
             price: price,
             shipped: shipped
+        }        
+
+        try {
+            const res = await API.graphql(graphqlOperation(createProduct, { input }))
+            console.log('create:', res);
+            setPrice(0)
+            setProduct('')
+            setDescription('')
+            setImageFile('')
+    
+        } catch(error) {
+            console.log('error in submit', error);
         }
-        const res = await API.graphql(graphqlOperation(createProduct, { input }))
-        console.log('e in submit', input);
-        setPrice(0)
-        setProduct('')
-        setDescription('')
-        setImageFile('')
     }
 
     return (
