@@ -22,8 +22,7 @@ const AddProduct = ({owner, shopId}) => {
         const { identityId } = await Auth.currentCredentials()
 
         /* Save image file first */
-        const path = "public"
-        const filename = `/${path}/${identityId}/${Date.now()}-${imageFile.name}`
+        const filename = `${identityId}/${imageFile.name}`
         const resFile = await Storage.put(filename, imageFile, {
             contentType: imageFile.type
         })        
@@ -49,7 +48,7 @@ const AddProduct = ({owner, shopId}) => {
 
         try {
             const res = await API.graphql(graphqlOperation(createProduct, { input }))
-            console.log('create:', res);
+            console.log('createdProduct:', res);
             setPrice(0)
             setProduct('')
             setDescription('')

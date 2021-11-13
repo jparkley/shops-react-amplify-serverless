@@ -26,4 +26,15 @@
 ## TODO
 - use SCSS (CSS refactoring needed)
 
+## Add AWS Services
+amplify init
+amplify add auth
+amplify add api
+amplify add storage
+
+
+## AWS Setup
+- Change S3 Bucket permission for public access to images saved on S3 stroage
+
+
 :musical_note:
