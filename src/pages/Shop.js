@@ -63,6 +63,7 @@ const Shop = ({shopId}) => {
                     </TabPanel>
                     )}
                     <TabPanel>
+                        <div className="product-list">
                         {state.shop.products.items && (
                             state.shop.products.items.map(product => {
                                 return (
@@ -70,6 +71,7 @@ const Shop = ({shopId}) => {
                                 )
                             })
                         )}
+                        </div>
                     </TabPanel>
                     <TabPanel>
                         FAQ section
