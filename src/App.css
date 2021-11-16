@@ -1,90 +1,106 @@
-/* CSS needs to be refactored */
-
 :root {
   --amplify-primary-color: #2196f3;
   --amplify-primary-tint: #3f6060;
   --amplify-primary-shade: #2dba89;
-  /* --amplify-background-color: #d8ecfc; */
   --amplify-background-color:  #fff;
 }
 
-amplify-authenticator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  height: 100vh;
+a {
+  text-decoration: none;
 }
-
-amplify-sign-in .hydrated {
-  background-color: mediumseagreen;
-}
-
-amplify-authenticator .section {
-  background-color: gray;
-}
-
-
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 2.5vw, 3rem);
 }
 
 /* Nav */
-.navbar {
+.nav {
   display: flex;
-  align-items: center;  
-  padding: 5px 20px;
+  flex-direction: row;
+  align-items: center;
   background-image: linear-gradient(#50b3eb, #2fa4e7 60%, #2c9ad9);
 }
 
-.navbar-brand {
-  display: flex;  
+.nav-container {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
-.navbar-brand h2 {
+.nav-brand {
+  display: flex;  
+  align-items: center;
+  margin-left: 1rem;
+}
+.nav-brand img {
+  width: clamp(30px, 28%, 40px);
+}
+.nav-brand > h2 {
   display: inline;
-  padding-left: 5px;
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
+  padding-left: .5rem;
   padding-top: 10px;
   text-transform: uppercase;
 }
 
-.navbar-brand img {
-  width: 50px;
-}
-
-.navbar-collapse {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.navbar-nav {
-  padding-top: 8px;
-  padding-left: 12px;
-}
-
 .nav-item {
   display: inline;
-  margin-left: 20px;
+  margin-left: 16px;
   padding-top: 10px;
 }
 
 .nav-link {
   color: #000;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
   font-weight: 500;
 }
 
-.navbar-collapse > .navbar-user {
+/* Hamburger menu */
+.toggle-menu {
+  position: absolute;
+  top: 1.4rem;
+  right: 1rem;
+  width: 32px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-bar {
+  width: 100%;
+  height: 2.8px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.nav-user {
   display: flex;
   align-items: center;  
 }
 
-/* .navbar-user > button { */
-button {  
+@media screen and (max-width:700px) {
+  .toggle-menu {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-user {
+    display: none;
+  }
+}
+
+
+
+/* .nav-user > button { */
+.btn {  
   display: inline-block;
   margin-left: 20px;
   padding: 0.375rem 0.75rem;  
@@ -520,3 +536,22 @@ display: block;
 .ReactModal__overlay--before-close {
   opacity: 0;
 } */
+
+
+amplify-authenticator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
+
+amplify-sign-in .hydrated {
+  background-color: mediumseagreen;
+}
+
+amplify-authenticator .section {
+  background-color: gray;
+}
+
+
