@@ -3,6 +3,10 @@
   --amplify-primary-tint: #3f6060;
   --amplify-primary-shade: #2dba89;
   --amplify-background-color:  #fff;
+  
+  --dark: rgb(15, 15, 15);
+  --bg-dark: #385c7e;
+  
 }
 
 a {
@@ -21,19 +25,6 @@ h2 {
   background-image: linear-gradient(#50b3eb, #2fa4e7 60%, #2c9ad9);
 }
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  width: 100%;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-
 .nav-brand {
   display: flex;  
   align-items: center;
@@ -50,16 +41,34 @@ h2 {
   text-transform: uppercase;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+}
+.nav-list { /* ul */
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
 .nav-item {
   display: inline;
   margin-left: 16px;
   padding-top: 10px;
 }
-
+.nav-list li:last-child {
+  display: none;  
+}
 .nav-link {
-  color: #000;
-  font-size: clamp(1.2rem, 1.8vw, 2rem);
+  color: var(--dark);
+  font-size: clamp(1.2rem, 1.6vw, 2rem);
   font-weight: 500;
+  line-height: 1.2rem;  
+}
+.nav-link:hover {
+  text-decoration: underline;
 }
 
 /* Hamburger menu */
@@ -82,14 +91,15 @@ h2 {
 
 .nav-user {
   display: flex;
-  align-items: center;  
+  align-items: center; 
+  gap: 10px; 
 }
 
-@media screen and (max-width:700px) {
+@media (max-width:700px) {
   .toggle-menu {
     display: flex;
   }
-  .nav-links {
+  .nav-list {
     display: none;
   }
   .nav-user {
@@ -97,20 +107,28 @@ h2 {
   }
 }
 
+@media (min-width: 701px) and (max-width:960px) {
+  .nav-user {
+    display: none;
+  }
+  .nav-list li:last-child {
+    display: inline;  
+  }  
+}
+
 
 
 /* .nav-user > button { */
 .btn {  
   display: inline-block;
-  margin-left: 20px;
   padding: 0.375rem 0.75rem;  
 
-  background-color: #385c7e;
+  background-color: var(--bg-dark);
   color: #fff;
   font-family: 'Josefin Sans','Segoe UI', 'Roboto', sans-serif;    
   font-size: 1rem;
   font-weight: 500;
-  line-height: 1.5;  
+  line-height: 1.2rem;
 
   text-align: center;  
   vertical-align: middle;
@@ -123,6 +141,12 @@ h2 {
   border: 1px solid transparent;
   border-radius: 0.25rem; 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-link {
+  background-color: transparent;
+  color: var(--dark);
+  font-size: clamp(1.2rem, 1.6vw, 2rem);  
 }
 
 .navbar-user > button:hover {
