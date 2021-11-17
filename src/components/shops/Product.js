@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { AmplifyS3Image } from '@aws-amplify/ui-react'
 import { userContext } from '../../App'
 
+import ProductForm from '../shops/ProductForm'
 import ButtonBuyNow from '../layout/ButtonBuyNow'
 
 const Product = ({product}) => {
@@ -24,6 +25,7 @@ const Product = ({product}) => {
                     )}
                 </div>
             </div>
+            <ProductForm owner={user} shopId={product.productShopId} isUpdate={true} product={product} />
         </div>
     )
 }

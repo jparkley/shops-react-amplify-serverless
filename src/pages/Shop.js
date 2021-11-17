@@ -6,6 +6,7 @@ import { getShop, listProducts } from '../graphql/queries'
 import { userContext } from '../App'
 import '../styles/react-tabs.css'
 import  AddProduct from '../components/shops/AddProduct'
+import  ProductForm from '../components/shops/ProductForm'
 import Product from '../components/shops/Product'
 
 const Shop = ({shopId}) => {
@@ -59,7 +60,8 @@ const Shop = ({shopId}) => {
 
                     {state.isOwner && (
                     <TabPanel>
-                        <AddProduct owner={user} shopId={shopId} />
+                        {/* <AddProduct owner={user} shopId={shopId} isUpdate={false}/> */}
+                        <ProductForm owner={user} shopId={shopId} />
                     </TabPanel>
                     )}
                     <TabPanel>
