@@ -5,8 +5,7 @@
   --amplify-background-color:  #fff;
   
   --dark: rgb(15, 15, 15);
-  --bg-dark: #385c7e;
-  
+  --bg-dark: #385c7e;  
 }
 
 a {
@@ -73,20 +72,14 @@ h2 {
 
 /* Hamburger menu */
 .toggle-menu {
+  color: var(--dark);
+  font-size: 1.1rem;
   position: absolute;
   top: 1.4rem;
   right: 1rem;
-  width: 32px;
-  height: 22px;
+  width: 36px;
+  height: 30px;
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.menu-bar {
-  width: 100%;
-  height: 2.8px;
-  background-color: black;
-  border-radius: 10px;
 }
 
 .nav-user {
