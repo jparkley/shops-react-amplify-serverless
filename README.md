@@ -33,7 +33,9 @@
 
 ## AWS Setup
 - Change S3 Bucket permission for public access to images saved on S3 stroage
-
+- If the default depth is set as 2 during the initial GraphQL setup, change it to 4 by following these steps:
+⋅⋅* amplify configure codegen
+⋅⋅* select 'Javascript', enter for the name pattern (keeping it the same), change the statement depth to 4
 
 ## TODO
 - (2021.11.14)
