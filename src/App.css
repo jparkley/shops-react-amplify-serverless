@@ -548,7 +548,13 @@ button:disabled {
 }
 
 .product-card-body { 
-display: block;
+  display: block;
+}
+
+.product-card-footer { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 

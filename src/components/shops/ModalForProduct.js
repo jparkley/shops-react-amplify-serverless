@@ -7,9 +7,15 @@ const ModalForProduct = ({isOpen, toggleModal, data}) => {
         <div>
             <Modal isOpen={isOpen} onRequestClose={toggleModal} ariaHideApp={false}
             contentLabel="Update Product" className="shop-modal"  overlayClassName="shop-overlay">
-            <p>Update Product</p>
-            <ProductForm isUpdate={true} product={data} />
-            {/* <ProductForm owner={user} shopId={shopId} /> */}
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h2>Uh2date Product</h2>
+                    </div>
+                    <div className="modal-body">
+                        <ProductForm isUpdate={true} product={data} style="product" />
+                        {/* <ProductForm owner={user} shopId={shopId} /> */}
+                    </div>
+                </div>
             </Modal>
         </div>
     )

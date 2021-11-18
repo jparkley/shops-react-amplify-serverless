@@ -5,7 +5,7 @@ import aws_exports from '../../aws-exports'
 import { createProduct, updateProduct } from '../../graphql/mutations'
 // import { userContext } from '../../App'
 
-const ProductForm = ({owner, shopId, isUpdate, product} ) => {
+const ProductForm = ({owner, shopId, isUpdate, product, style} ) => {
 
     const [name, setName] = useState(product ? product.name : '')
     const [price, setPrice] = useState(product ? product.price : 0)
@@ -63,7 +63,7 @@ const ProductForm = ({owner, shopId, isUpdate, product} ) => {
 
     return (
         <>  
-        <form>
+        <form className={style || ""}>
             <div className="block block-flex block-add-product">
                 <div className="block-top-margin">
                     <div className="form-element-grid">
@@ -107,7 +107,7 @@ const ProductForm = ({owner, shopId, isUpdate, product} ) => {
                         disabled={!name || !price || !description} 
                         onClick={handleSubmit}>{ isUpdate ? 'Update' : 'Add Product'}</button>
                     </div>
-                </div>        
+                </div>    
             </div>
         </form>
         </>

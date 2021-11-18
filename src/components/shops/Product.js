@@ -26,14 +26,14 @@ const Product = ({product}) => {
                     )}
                 </div>
                 {isOwner && (
-                <div>
-                    <button>Update</button>
-                    <button>Delete</button>
+                <div className="product-card-footer">
+                    {/* <button>Update</button> */}
+                    <ModalHandler type="product" data={product} />
+                    {/* <ProductForm owner={user} shopId={product.productShopId} isUpdate={true} product={product} /> */}
+                    <button className="btn">Delete</button>
                 </div>
                 )}
             </div>
-            <ModalHandler type="product" data={product} />
-            {/* <ProductForm owner={user} shopId={product.productShopId} isUpdate={true} product={product} /> */}
         </div>
     )
 }
