@@ -17,8 +17,6 @@ const ProductForm = ({owner, shopId, isUpdate, product} ) => {
         id from currentCredentials */
     // const user = useContext(userContext)
 
-    console.log('isupdate', isUpdate);    
-
     const handleSubmit = async (e) => {
 
         e.preventDefault()
@@ -46,7 +44,10 @@ const ProductForm = ({owner, shopId, isUpdate, product} ) => {
                 region: aws_exports.aws_project_region
             }
             Object.assign(input, {image: file})
-        }         
+        } else {
+            Object.assign(input, {id: product.id})
+        }
+        // console.log('final input:', input);
 
         try {
             const res = await API.graphql(graphqlOperation(isUpdate ? updateProduct : createProduct, { input }))            

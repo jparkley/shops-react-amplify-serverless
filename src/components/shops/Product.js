@@ -4,6 +4,7 @@ import { userContext } from '../../App'
 
 import ProductForm from '../shops/ProductForm'
 import ButtonBuyNow from '../layout/ButtonBuyNow'
+import ModalHandler from '../shops/ModalHandler'
 
 const Product = ({product}) => {
     const user = useContext(userContext)
@@ -24,8 +25,15 @@ const Product = ({product}) => {
                         <ButtonBuyNow />
                     )}
                 </div>
+                {isOwner && (
+                <div>
+                    <button>Update</button>
+                    <button>Delete</button>
+                </div>
+                )}
             </div>
-            <ProductForm owner={user} shopId={product.productShopId} isUpdate={true} product={product} />
+            <ModalHandler type="product" data={product} />
+            {/* <ProductForm owner={user} shopId={product.productShopId} isUpdate={true} product={product} /> */}
         </div>
     )
 }
