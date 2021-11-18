@@ -38,16 +38,11 @@
 ⋅⋅* select 'Javascript', enter for the name pattern (keeping it the same), change the statement depth to 4
 
 ## TODO
-- (2021.11.14~)
-- for non-ownders: Checkout button -> style update
-- for owners: Update / Delete button
-- add functionality for the above
-- modal for update (not for creation)
-
-
-- (later)
-- use SCSS (CSS refactoring needed)
-
+- (2021.11.18~)
+- for owners: Delete function, subscription
+- product layout style
+- button style
+- **CSS refactoring**
 
 
 :musical_note:
