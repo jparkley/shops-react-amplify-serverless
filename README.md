@@ -22,7 +22,7 @@
 
 ## Blockers
 - Amplify Photopicker: how to customize CSS and some functions
-
+**--> used input type file instead**
 
 ## Add AWS Services
 - amplify init
@@ -39,6 +39,7 @@
 
 ## TODO
 - (2021.11.18~)
+- cleanup components
 - for owners: Delete function, subscription
 - product layout style
 - button style

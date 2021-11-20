@@ -30,7 +30,8 @@ const Product = ({product}) => {
                     {/* <button>Update</button> */}
                     <ModalHandler type="product" data={product} />
                     {/* <ProductForm owner={user} shopId={product.productShopId} isUpdate={true} product={product} /> */}
-                    <button className="btn">Delete</button>
+                    <ModalHandler type="alert-delete" data={product.id} />
+                    {/* <button className="btn">Delete</button> */}
                 </div>
                 )}
             </div>

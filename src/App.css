@@ -142,6 +142,10 @@ h2 {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.btn + .btn {
+  margin-left: 1rem;
+}
+
 .btn-link {
   background-color: transparent;
   color: var(--dark);
