@@ -20,9 +20,12 @@
 - @aws-amplify/ui-react 1.2.20
 - aws-amplify 4.3.2
 
-## Blockers
+## Blockers & Solution
 - Amplify Photopicker: how to customize CSS and some functions
 **--> used input type file instead**
+- Error occurred in Subscription on Product (bsc Product model set with auth limitation)
+https://github.com/aws-amplify/amplify-cli/issues/2715
+
 
 ## Add AWS Services
 - amplify init
@@ -37,10 +40,11 @@
 ⋅⋅* amplify configure codegen
 ⋅⋅* select 'Javascript', enter for the name pattern (keeping it the same), change the statement depth to 4
 
+
 ## TODO
 - (2021.11.18~)
 - cleanup components
-- for owners: Delete function, subscription
+- for owners: subscription on Delete (blocker)
 - product layout style
 - button style
 - **CSS refactoring**

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import { API, graphqlOperation } from 'aws-amplify'
+import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { getShop } from '../graphql/queries'
 import { onCreateProduct } from '../graphql/subscriptions'
 
@@ -35,8 +35,20 @@ const Shop = ({shopId}) => {
             setState({...state, shop: res.data.getShop, isLoading: false})
             checkOwner(res.data.getShop.owner)
         }
-        getShopInfo()
 
+        const subscribeProducts = async() => {
+            await API.graphql(graphqlOperation(onCreateProduct, {owner: user})).subscribe({
+                next: ({provider, value}) => {
+                    console.log('value', value);
+                    setState({...state, shop: value.data.onCreateProduct})
+                }, 
+                error: error => {
+                    console.log('Error in Subscribing to Shop(onCreateProduct)', error);
+                }
+            })
+        }   
+        getShopInfo()
+        subscribeProducts()
     }, [])
 
     return state.isLoading ? (

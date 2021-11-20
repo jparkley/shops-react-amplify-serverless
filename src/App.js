@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     let checkUser = async () => {
       try {
-        const res = await Auth.currentAuthenticatedUser()      
+        const res = await Auth.currentAuthenticatedUser()
         // setState({user: res.attributes.email})  
         setState({user: res})  
       } catch(error) {
