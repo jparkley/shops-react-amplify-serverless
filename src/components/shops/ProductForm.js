@@ -6,7 +6,7 @@ import { createProduct, updateProduct } from '../../graphql/mutations'
 // import { useContext } from 'react'
 // import { userContext } from '../../App'
 
-const ProductForm = ({owner, shopId, isUpdate, product, style} ) => {
+const ProductForm = ({owner, shopId, isUpdate, product, customStyle} ) => {
 
     const [name, setName] = useState(product ? product.name : '')
     const [price, setPrice] = useState(product ? product.price : 0)
@@ -51,7 +51,7 @@ const ProductForm = ({owner, shopId, isUpdate, product, style} ) => {
         // console.log('final input:', input);
 
         try {
-            const res = await API.graphql(graphqlOperation(isUpdate ? updateProduct : createProduct, { input }))            
+            await API.graphql(graphqlOperation(isUpdate ? updateProduct : createProduct, { input }))            
             // console.log('res:', res);
             setPrice(0)
             setName('')
@@ -64,7 +64,7 @@ const ProductForm = ({owner, shopId, isUpdate, product, style} ) => {
 
     return (
         <>  
-        <form className={style || ""}>
+        <form className={customStyle || ""}>
             <div className="block block-flex block-add-product">
                 <div className="block-top-margin">
                     <div className="form-element-grid">

@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { API, graphqlOperation } from 'aws-amplify'
-import { getShop, listProducts } from '../graphql/queries'
+import { getShop } from '../graphql/queries'
+import { onCreateProduct } from '../graphql/subscriptions'
 
 import { userContext } from '../App'
 import '../styles/react-tabs.css'
@@ -22,7 +23,7 @@ const Shop = ({shopId}) => {
         if(!shopId) return
 
         const checkOwner = (owner) => {
-            // console.log('user from context', user.attributes.email);    
+            // console.log('user from context', user.attributes.email);
             if (user) {
                 setState(prev => ({...prev, isOwner: (owner === userEmail)}))
             }
@@ -34,8 +35,8 @@ const Shop = ({shopId}) => {
             setState({...state, shop: res.data.getShop, isLoading: false})
             checkOwner(res.data.getShop.owner)
         }
-
         getShopInfo()
+
     }, [])
 
     return state.isLoading ? (

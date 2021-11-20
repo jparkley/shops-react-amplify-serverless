@@ -18,10 +18,10 @@ const ShopList = () => {
         const subscribeShops = async () => {
             await API.graphql(graphqlOperation(onCreateShop)).subscribe({
                 next: ({ provider, value }) => {
-                    setShops(prev => [...prev,value.data.onCreateShop])
+                    setShops(prev => [...prev, value.data.onCreateShop])
                 },
                 error: error => {
-                    console.log('err in sub', error);
+                    console.log('Error in Subscribing to Shops', error);
                 }
             })
         }

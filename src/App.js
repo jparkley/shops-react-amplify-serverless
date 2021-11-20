@@ -7,7 +7,7 @@ import { AmplifyAuthenticator, AmplifySignUp } from '@aws-amplify/ui-react'
       won't automatically detect Auth state of the user, but enables us to customize nav */
 import awsConfig from './aws-exports'
 
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 
 import './App.css';
 import Nav from './components/layout/Nav'

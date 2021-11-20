@@ -7,7 +7,7 @@ import ModalHandler from '../shops/ModalHandler'
 
 const Product = ({product}) => {
     const user = useContext(userContext)
-    let isOwner = user && (user.username == product.owner)
+    let isOwner = user && (user.username === product.owner)
 
     return (
         <div className="product-card">

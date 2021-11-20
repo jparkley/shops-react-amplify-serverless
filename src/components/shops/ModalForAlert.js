@@ -6,12 +6,9 @@ const ModalForAlert = ({isOpen, toggleModal, data}) => {
 
     const handleDelete = async () => {
         console.log('id:', data);
-        const input = {
-            id: data
-        }
+        const input = { id: data }
         try {
-            const res = await API.graphql(graphqlOperation( deleteProduct, { input }))
-            // console.log(res);
+            await API.graphql(graphqlOperation( deleteProduct, { input }))
         } catch(error) {
             console.log('Error in Deleting Product: ', error);
         }
@@ -27,7 +24,7 @@ const ModalForAlert = ({isOpen, toggleModal, data}) => {
                     </div>
                     <div className="modal-body">
                         <p>Are you sure to delete this product? </p>
-                        <button className="btn">Cancel</button>
+                        <button className="btn" onClick={toggleModal}>Cancel</button>
                         <button className="btn btn-alert" onClick={handleDelete}>Delete</button>
                     </div>
                 </div>

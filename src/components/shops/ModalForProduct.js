@@ -12,7 +12,7 @@ const ModalForProduct = ({isOpen, toggleModal, data}) => {
                         <h2>Uh2date Product</h2>
                     </div>
                     <div className="modal-body">
-                        <ProductForm isUpdate={true} product={data} style="product" />
+                        <ProductForm isUpdate={true} product={data} customStyle="product" />
                         {/* <ProductForm owner={user} shopId={shopId} /> */}
                     </div>
                 </div>
