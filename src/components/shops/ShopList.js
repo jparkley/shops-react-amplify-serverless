@@ -29,7 +29,6 @@ const ShopList = () => {
         subscribeShops()
 
         return () => console.log('cleanup in shoplist');
-        // need to add cleanup
     }, [])
 
     return (

@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { API, graphqlOperation, Storage, Auth } from 'aws-amplify'
 // import { AmplifyS3ImagePicker, AmplifyS3Image } from '@aws-amplify/ui-react'
 import aws_exports from '../../aws-exports'
 import { createProduct, updateProduct } from '../../graphql/mutations'
+// import { useContext } from 'react'
 // import { userContext } from '../../App'
 
 const ProductForm = ({owner, shopId, isUpdate, product, style} ) => {

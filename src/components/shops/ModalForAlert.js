@@ -4,8 +4,6 @@ import { deleteProduct } from '../../graphql/mutations'
 
 const ModalForAlert = ({isOpen, toggleModal, data}) => {
 
-    console.log('id: ', data);
-
     const handleDelete = async () => {
         console.log('id:', data);
         const input = {
@@ -13,8 +11,7 @@ const ModalForAlert = ({isOpen, toggleModal, data}) => {
         }
         try {
             const res = await API.graphql(graphqlOperation( deleteProduct, { input }))
-            console.log(res);
-
+            // console.log(res);
         } catch(error) {
             console.log('Error in Deleting Product: ', error);
         }
@@ -32,7 +29,6 @@ const ModalForAlert = ({isOpen, toggleModal, data}) => {
                         <p>Are you sure to delete this product? </p>
                         <button className="btn">Cancel</button>
                         <button className="btn btn-alert" onClick={handleDelete}>Delete</button>
-                        {/* <ProductForm owner={user} shopId={shopId} /> */}
                     </div>
                 </div>
             </Modal>

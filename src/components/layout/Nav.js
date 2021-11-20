@@ -26,7 +26,7 @@ const Nav = ({user, handleSignOut}) => {
                         <Link to="/profile" className="nav-link">Profile</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/shops/3" className="nav-link">Shop</Link>
+                        <Link to="/shops/" className="nav-link">Shop</Link>
                     </li>
                     <li className="nav-item">
                         <button type="button" className="btn btn-link nav-link" onClick={handleSignOut}>Sign Out</button>

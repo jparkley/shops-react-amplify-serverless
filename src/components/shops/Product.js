@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { AmplifyS3Image } from '@aws-amplify/ui-react'
-import { userContext } from '../../App'
 
-import ProductForm from '../shops/ProductForm'
+import { userContext } from '../../App'
 import ButtonBuyNow from '../layout/ButtonBuyNow'
 import ModalHandler from '../shops/ModalHandler'
 
